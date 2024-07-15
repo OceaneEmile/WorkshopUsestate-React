@@ -49,14 +49,10 @@ console.log(settings);
 
   return (
     <main className="flex justify-center items-center m-auto max-w-4xl max-lg:flex-col gap-8 min-h-full">
-      <div className="card bg-base-100 image-full w-96 shadow-xl">
+      <div class="card bg-base-100 w-96 shadow-xl">
       <figure>
           {ImageGenerator({ image, settings })}
         </figure>
-        <div className="card-body">
-          <div className="card-actions justify-end">
-          </div>
-        </div>
       </div>
       <div className="card-body">
         <span>Files</span>
