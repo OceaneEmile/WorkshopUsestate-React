@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { ImageGenerator } from "./ImageGenerator";
 
 export default function Home() {
 
@@ -14,12 +15,10 @@ export default function Home() {
   const setSetting = (name, value) => {
     setSettings((curr) => ({
       ...curr,
-      [name]: value,
+      [name]: value, // il faut utiliser la syntaxe array pour pouvoir modifier les valeurs
     }));
   };
-
-  
-
+  // Méthode pour gérer l'upload d'image
   const handleImageUpload = (event) => {
     // const file = event.target.files[0];
     // setImage(URL.createObjectURL(file));
@@ -45,14 +44,14 @@ export default function Home() {
     };
     reader.readAsDataURL(file);
   };
+//console.log(image);
 console.log(settings);
 
   return (
     <main className="flex justify-center items-center m-auto max-w-4xl max-lg:flex-col gap-8 min-h-full">
       <div className="card bg-base-100 image-full w-96 shadow-xl">
       <figure>
-          {image ? <img src={image.src} /> : null
-          }
+          {ImageGenerator({ image, settings })}
         </figure>
         <div className="card-body">
           <div className="card-actions justify-end">
